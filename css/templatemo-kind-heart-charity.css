@@ -196,8 +196,56 @@ strong {
 .section-overlay + .container {
   position: relative;
 }
+@media (max-width: 991px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--white-color);
+    padding: 60px 20px 20px;
+    transition: right 0.3s ease-in-out;
+    overflow-y: auto;
+  }
 
+  .navbar-collapse.show {
+    right: 0;
+  }
 
+  .navbar-nav {
+    margin-top: 20px;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 10px 0;
+  }
+
+  .navbar-toggler {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+  }
+
+  .navbar-brand {
+    z-index: 1001;
+  }
+
+  .dropdown-menu {
+    border: none;
+    background-color: transparent;
+    padding-left: 20px;
+  }
+}
+
+.navbar {
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+  background-color: var(--white-color);
+}
 /*---------------------------------------
   CUSTOM BLOCK               
 -----------------------------------------*/
@@ -352,11 +400,14 @@ strong {
 -----------------------------------------*/
 .navbar {
   background: var(--white-color);
-  z-index: 9;
+  z-index: 1000;
   padding-top: 0;
   padding-bottom: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
-
 .navbar-brand {
   color: var(--primary-color);
   font-size: var(--h6-font-size);
