@@ -15,6 +15,17 @@
     <link href="css/bootstrap-icons.css" rel="stylesheet" />
 
     <link href="css/templatemo-kind-heart-charity.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/CountUp.js/2.0.8/countUp.min.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const foundedCounter = new CountUp('founded-counter', 2015, { duration: 2 });
+        const donationsCounter = new CountUp('donations-counter', 120, { duration: 2, suffix: 'M' });
+        
+        foundedCounter.start();
+        donationsCounter.start();
+      });
+    </script>
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
@@ -364,11 +375,12 @@
                     <div class="counter-thumb">
                       <div class="d-flex">
                         <span
-                          class="counter-number"
-                          data-from="1"
-                          data-to="2015"
-                          data-speed="1000"
-                        ></span>
+  id="founded-counter"
+  class="counter-number"
+  data-from="1"
+  data-to="2015"
+  data-speed="1000"
+></span>
                         <span class="counter-number-text"></span>
                       </div>
 
@@ -378,11 +390,12 @@
                     <div class="counter-thumb mt-4">
                       <div class="d-flex">
                         <span
-                          class="counter-number"
-                          data-from="1"
-                          data-to="120"
-                          data-speed="1000"
-                        ></span>
+  id="donations-counter"
+  class="counter-number"
+  data-from="1"
+  data-to="120"
+  data-speed="1000"
+></span>
                         <span class="counter-number-text">M</span>
                       </div>
                       <span class="counter-text">Donations</span>
@@ -1213,6 +1226,25 @@ EmbedManager.embed({
 	width: "100%"
 });
 </script>
+<script>
+  jQuery(document).ready(function($) {
+    $('.counter-number').each(function() {
+      $(this).countTo({
+        from: $(this).data('from'),
+        to: $(this).data('to'),
+        speed: $(this).data('speed'),
+        refreshInterval: 50,
+        formatter: function(value, options) {
+          return value.toFixed(options.decimals);
+        },
+        onComplete: function(value, options) {
+          console.log('Counter completed!');
+        }
+      });
+    });
+  });
+</script>
+
     <script
       type="text/javascript"
       src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
