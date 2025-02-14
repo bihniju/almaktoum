@@ -352,7 +352,13 @@ s0.parentNode.insertBefore(s1,s0);
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(45deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+        /* Update the gradient to be more opaque for better text visibility */
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0.6) 50%,
+          rgba(0, 0, 0, 0.8) 100%
+        );
       }
 
       .hero-content-wrapper {
@@ -367,6 +373,8 @@ s0.parentNode.insertBefore(s1,s0);
         opacity: 0;
         transform: translateY(30px);
         transition: all 0.8s ease;
+        /* Add text shadow for better readability */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       }
 
       .carousel-item.active .hero-content {
@@ -379,12 +387,16 @@ s0.parentNode.insertBefore(s1,s0);
         font-size: 1.2rem;
         text-transform: uppercase;
         letter-spacing: 2px;
-        font-weight: 500;
+        font-weight: 600; /* Increased font weight */
         color: var(--primary-color);
         margin-bottom: 1rem;
         padding: 0.5rem 1rem;
-        background: rgba(255,255,255,0.1);
+        /* Update background to be more visible */
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(5px);
         border-radius: 30px;
+        /* Add subtle glow effect */
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
       }
 
       .hero-content h1 {
@@ -392,15 +404,26 @@ s0.parentNode.insertBefore(s1,s0);
         font-weight: 700;
         line-height: 1.2;
         margin-bottom: 1.5rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        /* Enhanced text shadow for better visibility */
+        text-shadow: 
+          2px 2px 4px rgba(0, 0, 0, 0.5),
+          0 0 20px rgba(0, 0, 0, 0.3);
+        /* Add subtle outline */
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
       }
 
       .hero-content p {
         font-size: 1.25rem;
         line-height: 1.6;
         margin-bottom: 2rem;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        opacity: 0.9;
+        /* Enhanced text shadow */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        opacity: 0.95;
+        font-weight: 500; /* Slightly bolder font */
+        /* Add subtle background for better readability */
+        background: rgba(0, 0, 0, 0.2);
+        padding: 1rem;
+        border-radius: 8px;
       }
 
       .hero-buttons {
@@ -974,7 +997,6 @@ s0.parentNode.insertBefore(s1,s0);
         .hero-subtitle {
           font-size: 1rem;
           margin-bottom: 0.75rem;
-          padding: 0.4rem 0.8rem;
         }
         
         .hero-content p {
@@ -995,7 +1017,6 @@ s0.parentNode.insertBefore(s1,s0);
         
         .hero-subtitle {
           font-size: 0.9rem;
-          padding: 0.3rem 0.7rem;
         }
         
         .hero-content p {
@@ -1807,6 +1828,70 @@ s0.parentNode.insertBefore(s1,s0);
             </div>
 
             <div class="col-lg-7 col-12">
+              <!-- Place scam-bust news block here, before argentina news -->
+              <div class="news-block" data-news-id="scam-bust">
+                <div class="news-block-top">
+                  <a href="police-case-detail.html">
+                    <img
+                      src="https://mmo.aiircdn.com/265/6613bbdd9a35d.jpg"
+                      class="news-image img-fluid"
+                      alt="Dubai Police arrest phone scammers"
+                    />
+                  </a>
+
+                  <div class="news-category-block">
+                    <a href="#" class="category-block-link">Dubai Police</a>
+                    <a href="#" class="category-block-link">Public Safety Alert</a>
+                  </div>
+                </div>
+
+                <div class="news-block-info">
+                  <div class="d-flex mt-2">
+                    <div class="news-block-date">
+                      <p>
+                        <i class="bi-calendar4 custom-icon me-1"></i>
+                        Feb 15, 2025
+                      </p>
+                    </div>
+
+                    <div class="news-block-author mx-5">
+                      <p>
+                        <i class="bi-person custom-icon me-1"></i>
+                        By Dubai Police
+                      </p>
+                    </div>
+
+                    <div class="news-block-comment">
+                      <p>
+                        <i class="bi-chat-left custom-icon me-1"></i>
+                        156 Comments
+                      </p>
+                    </div>
+                    
+                    <div class="news-block-share">
+                      <button onclick="copyShareLink(event, 'scam-bust')" class="share-btn" title="Click to copy share link">
+                        <i class="bi-share"></i>
+                        <span>Share</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="news-block-title mb-2">
+                    <h4>
+                      <a href="police-case-detail.html" class="news-block-title-link">
+                        Dubai Police Thwarts Major Phone Scam Operation Thanks to South African Tipster
+                      </a>
+                    </h4>
+                  </div>
+
+                  <div class="news-block-body">
+                    <p>
+                      In a significant breakthrough, Dubai Police successfully dismantled a sophisticated phone scam network, leading to multiple arrests. The operation's success was made possible by crucial information from a vigilant South African national who alerted authorities about fake prize winning schemes targeting unsuspecting victims.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               <div class="news-block" data-news-id="argentina">
                 <div class="news-block-top">
                   <a href="argentina-news-detail.html">
@@ -1845,7 +1930,7 @@ s0.parentNode.insertBefore(s1,s0);
                     <div class="news-block-comment">
                       <p>
                         <i class="bi-chat-left custom-icon me-1"></i>
-                        0 Comments
+                        990,120 Comments
                       </p>
                     </div>
                     
