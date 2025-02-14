@@ -141,124 +141,10 @@ s0.parentNode.insertBefore(s1,s0);
           margin-top: 0.5rem;
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-      }
 
-      /* News Section Improvements */
-      .news-section {
-        background-color: #f8f9fa;
-        padding: 5rem 0;
-      }
-
-      .news-block {
-        background: white;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        margin-bottom: 2rem;
-      }
-
-      .news-block:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      }
-
-      .news-block-top {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .news-block-top img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-
-      .news-block:hover .news-block-top img {
-        transform: scale(1.05);
-      }
-
-      .news-category-block {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 1rem;
-        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      }
-
-      .category-block-link {
-        display: inline-block;
-        background: var(--primary-color);
-        color: white !important;
-        padding: 0.25rem 1rem;
-        border-radius: 20px;
-        font-size: 0.875rem;
-        margin: 0.25rem;
-        transition: all 0.3s ease;
-      }
-
-      .category-block-link:hover {
-        background: white;
-        color: var(--primary-color) !important;
-        transform: translateY(-2px);
-      }
-
-      .news-block-info {
-        padding: 1.5rem;
-      }
-
-      .news-block-title-link {
-        color: #2b2b2b;
-        font-size: 1.25rem;
-        font-weight: 600;
-        transition: color 0.3s ease;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-
-      .news-block-title-link:hover {
-        color: var(--primary-color);
-      }
-
-      .news-block-body p {
-        color: #6c757d;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-
-      .share-btn {
-        padding: 0.4rem 1rem;
-        font-size: 0.875rem;
-        border-radius: 20px;
-        background-color: transparent;
-        border: 1px solid var(--primary-color);
-        color: var(--primary-color);
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      
-      .share-btn:hover {
-        background-color: var(--primary-color);
-        color: white;
-        transform: translateY(-2px);
-      }
-
-      /* Responsive improvements */
-      @media (max-width: 768px) {
         .news-block {
           margin: 1rem 0;
+          margin-bottom: 0.5rem;
         }
 
         .news-block-top img {
@@ -798,6 +684,289 @@ s0.parentNode.insertBefore(s1,s0);
         .volunteering-content {
           text-align: center;
         }
+      }
+
+      /* General Layout Improvements */
+      .container {
+        padding: 0 1.5rem;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      /* Fix Section Padding */
+      .section-padding {
+        padding: 5rem 0;
+      }
+
+      @media (max-width: 768px) {
+        .section-padding {
+          padding: 3rem 0;
+        }
+      }
+
+      /* Improve Grid Layout */
+      .row {
+        margin-left: -1rem;
+        margin-right: -1rem;
+      }
+
+      .row > [class*="col-"] {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      /* Fix News Section Layout */
+      .news-section .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -1rem; /* Negative margin to counteract padding */
+      }
+
+      .news-section .col-lg-7 {
+        padding: 1rem;
+        width: 100%;
+      }
+
+      .news-block {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 2rem;
+      }
+
+      .news-block-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Fix News Block Info Layout */
+      .news-block-info .d-flex {
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .news-section .row {
+          margin: 0; /* Remove negative margin on mobile */
+        }
+        
+        .news-section .col-lg-7 {
+          padding: 0.5rem;
+        }
+
+        .news-block {
+          margin-bottom: 1rem;
+        }
+
+        .news-block-info {
+          padding: 1rem;
+        }
+
+        .news-block-info .d-flex {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
+
+        .news-block-author.mx-5 {
+          margin: 0 !important;
+        }
+
+        .news-block-share {
+          width: 100%;
+        }
+      }
+
+      /* Ensure images don't overflow */
+      .news-block-top img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      @media (max-width: 576px) {
+        .news-block-top img {
+          height: 200px;
+        }
+      }
+
+      /* Improve Volunteer Section */
+      .volunteer-section .custom-form {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Fix Story Section Layout */
+      .story-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      @media (max-width: 991px) {
+        .story-container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        
+        .story-image {
+          order: -1;
+        }
+      }
+
+      /* Fix Stats Layout */
+      .story-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+        background: white;
+        border-radius: 1rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      }
+
+      /* Fix Trustees Grid */
+      .trustees-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      /* Fix Contact Section */
+      .contact-section .row {
+        align-items: stretch;
+      }
+
+      .contact-info-wrap,
+      .custom-form.contact-form {
+        height: 100%;
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      }
+
+      /* Fix Footer Layout */
+      .site-footer .row {
+        row-gap: 2rem;
+      }
+
+      /* Fix Navigation */
+      .navbar-nav {
+        gap: 0.5rem;
+      }
+
+      @media (max-width: 991px) {
+        .navbar-collapse {
+          background: white;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          margin-top: 1rem;
+        }
+        
+        .navbar-nav {
+          gap: 0;
+        }
+      }
+
+      /* Fix Featured Blocks */
+      .featured-block {
+        height: 100%;
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        transition: transform 0.3s ease;
+      }
+
+      .featured-block:hover {
+        transform: translateY(-5px);
+      }
+
+      /* Fix Causes Section */
+      .custom-block-wrap {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .custom-block {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .custom-block-body {
+        flex: 1;
+      }
+
+      /* Fix Google Translate Element */
+      #google_translate_element {
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem; /* Modified to move to the left */
+        z-index: 1000;
+        background: white;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Fix Scroll Progress Bar */
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        z-index: 1001;
+        background: transparent;
+      }
+
+      .scroll-progress-bar {
+        height: 100%;
+        background: var(--primary-color);
+        width: 0%;
+        transition: width 0.2s ease;
+      }
+
+      /* Improve Button Styles */
+      .custom-btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-align: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .custom-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Fix Form Elements */
+      .form-control {
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid #e0e0e0;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.1);
       }
     </style>
   </head>
@@ -1493,7 +1662,7 @@ s0.parentNode.insertBefore(s1,s0);
                     <div class="news-block-date">
                       <p>
                         <i class="bi-calendar4 custom-icon me-1"></i>
-                        May 15, 2024
+                        Feb 14, 2025
                       </p>
                     </div>
 
@@ -1507,7 +1676,7 @@ s0.parentNode.insertBefore(s1,s0);
                     <div class="news-block-comment">
                       <p>
                         <i class="bi-chat-left custom-icon me-1"></i>
-                        0 Comments
+                        997 Comments
                       </p>
                     </div>
                     
