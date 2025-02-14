@@ -409,11 +409,13 @@ s0.parentNode.insertBefore(s1,s0);
         gap: 1rem;
         width: 100%;
         max-width: 100%;
+        margin-top: 2rem; /* Add spacing above buttons */
       }
 
       .hero-buttons .btn {
         flex: 1;
-        padding: 0.75rem 1rem;
+        max-width: 200px; /* Limit button width */
+        padding: 0.75rem 1.5rem;
         font-size: 0.9rem;
         font-weight: 600;
         text-transform: uppercase;
@@ -423,11 +425,34 @@ s0.parentNode.insertBefore(s1,s0);
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        line-height: 1;
-        position: relative;
-        overflow: hidden;
-        min-width: 0;
-        white-space: nowrap;
+      }
+
+      @media (max-width: 576px) {
+        .hero-buttons {
+          flex-direction: row; /* Keep buttons side by side */
+          justify-content: center; /* Center buttons */
+          gap: 1rem;
+          margin-top: 1.5rem; /* Slightly less spacing on mobile */
+        }
+        
+        .hero-buttons .btn {
+          flex: 0 1 auto; /* Don't stretch buttons */
+          min-width: 120px; /* Minimum button width */
+          max-width: 160px; /* Maximum button width */
+          padding: 0.6rem 1rem;
+        }
+      }
+
+      @media (max-width: 375px) {
+        .hero-buttons {
+          gap: 0.75rem;
+        }
+        
+        .hero-buttons .btn {
+          min-width: 100px;
+          padding: 0.5rem 0.75rem;
+          font-size: 0.8rem;
+        }
       }
 
       .btn-primary {
@@ -518,7 +543,8 @@ s0.parentNode.insertBefore(s1,s0);
 
       /* Modern styling for Our Story section */
       .story-container {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 4rem;
         align-items: center;
         max-width: 1400px;
@@ -635,6 +661,7 @@ s0.parentNode.insertBefore(s1,s0);
 
       /* Modern styling for Board of Trustees section */
       .trustees-section {
+        padding: 5rem 0;
         background: #f8f9fa;
       }
 
@@ -643,15 +670,36 @@ s0.parentNode.insertBefore(s1,s0);
         margin: 0 auto 4rem;
       }
 
-      .section-description {
-        font-size: 1.1rem;
-        color: #666;
-        line-height: 1.8;
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2b2b2b;
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
       }
 
-      .trustees-container {
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--primary-color);
+        border-radius: 2px;
+      }
+
+      .section-description {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #666;
+      }
+
+      .trustees-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2rem;
         max-width: 1400px;
         margin: 0 auto;
@@ -661,131 +709,122 @@ s0.parentNode.insertBefore(s1,s0);
         background: white;
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        height: 100%;
       }
 
       .trustee-card:hover {
         transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
       }
 
-      .trustee-image-wrapper {
-        width: 100%;
-        height: 300px;
+      .trustee-image {
+        position: relative;
+        padding-top: 100%;
         overflow: hidden;
       }
 
-      .trustee-image-wrapper img {
+      .trustee-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.3s ease;
+        transition: transform 0.5s ease;
       }
 
-      .trustee-card:hover .trustee-image-wrapper img {
+      .trustee-card:hover .trustee-image img {
         transform: scale(1.05);
       }
 
-      .trustee-info {
+      .trustee-content {
         padding: 2rem;
       }
 
-      .trustee-info h3 {
-        font-size: 1.3rem;
+      .trustee-content h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
         color: #2b2b2b;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
       }
 
-      .trustee-info p {
+      .trustee-title {
+        font-size: 1rem;
+        color: var(--primary-color);
+        margin-bottom: 0.25rem;
+      }
+
+      .trustee-role {
+        font-size: 0.9rem;
         color: #666;
-        line-height: 1.6;
         margin-bottom: 1rem;
       }
 
       .trustee-description {
-        font-style: italic;
-        color: #888;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 1.5rem;
       }
 
-      .btn-primary {
-        display: inline-block;
-        padding: 0.8rem 2rem;
-        border-radius: 30px;
-        background: var(--primary-color);
-        color: white;
+      .trustee-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        font-size: 0.9rem;
+        font-weight: 600;
         text-decoration: none;
         transition: all 0.3s ease;
       }
 
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.3);
+      .trustee-link:hover {
+        gap: 0.75rem;
+        color: #2b2b2b;
       }
 
-      /* Responsive Design */
-      @media (max-width: 992px) {
+      @media (max-width: 991px) {
         .story-container {
-          flex-direction: column-reverse;
+          grid-template-columns: 1fr;
           gap: 2rem;
         }
-
+        
         .story-image {
-          margin-bottom: 2rem;
+          order: -1;
         }
-
-        .trustees-container {
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        
+        .story-content {
+          text-align: center;
+        }
+        
+        .story-stats {
+          justify-content: center;
+        }
+        
+        .story-mission {
+          text-align: left;
         }
       }
 
       @media (max-width: 768px) {
-        .section-title {
-          font-size: 2rem;
-        }
-
         .story-stats {
-          gap: 2rem;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
           padding: 1.5rem;
-          flex-direction: row;
-          justify-content: center;
-          margin: 2rem -1rem;
-        }
-        
-        .stat-item {
-          flex: 0 1 auto;
-          min-width: 120px;
         }
         
         .stat-number {
           font-size: 2.5rem;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
         }
         
         .stat-suffix {
           font-size: 2rem;
-          margin-left: 0.25rem;
         }
         
         .stat-label {
           font-size: 1rem;
-          margin-top: 0.25rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .story-stats {
-          gap: 1.5rem;
-          padding: 1rem;
-        }
-        
-        .stat-number {
-          font-size: 2rem;
-        }
-        
-        .stat-suffix {
-          font-size: 1.5rem;
         }
       }
 
@@ -909,6 +948,91 @@ s0.parentNode.insertBefore(s1,s0);
 
       .site-footer-link:hover {
         color: var(--primary-color);
+      }
+
+      /* Add these responsive styles */
+      @media (max-width: 1200px) {
+        .hero-content h1 {
+          font-size: 3.5rem;
+        }
+        
+        .hero-subtitle {
+          font-size: 1.1rem;
+        }
+        
+        .hero-content p {
+          font-size: 1.15rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+          font-size: 1rem;
+          margin-bottom: 0.75rem;
+          padding: 0.4rem 0.8rem;
+        }
+        
+        .hero-content p {
+          font-size: 1rem;
+          margin-bottom: 1.5rem;
+        }
+        
+        .hero-buttons .btn {
+          padding: 0.6rem 1rem;
+          font-size: 0.85rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+        
+        .hero-subtitle {
+          font-size: 0.9rem;
+          padding: 0.3rem 0.7rem;
+        }
+        
+        .hero-content p {
+          font-size: 0.95rem;
+          -webkit-line-clamp: 3;
+          line-clamp: 3;
+        }
+        
+        .hero-content-wrapper {
+          padding: 0 1rem;
+        }
+        
+        .hero-buttons {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+        
+        .hero-buttons .btn {
+          width: 100%;
+          padding: 0.75rem;
+        }
+      }
+
+      @media (max-width: 375px) {
+        .hero-content h1 {
+          font-size: 1.75rem;
+        }
+        
+        .hero-subtitle {
+          font-size: 0.85rem;
+        }
+        
+        .hero-content p {
+          font-size: 0.9rem;
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+        }
       }
     </style>
   </head>
@@ -1218,7 +1342,6 @@ s0.parentNode.insertBefore(s1,s0);
 
       <section class="section-padding section-bg" id="section_2">
         <div class="container">
-          <!-- Our Story Section -->
           <div class="story-container">
             <div class="story-content">
               <div class="story-header">
@@ -1314,69 +1437,88 @@ s0.parentNode.insertBefore(s1,s0);
         </div>
       </section>
 
-      <section class="cta-section section-padding section-bg">
+      <section class="trustees-section section-padding" id="board">
         <div class="container">
-          <section class="board-of-trustees">
-            <h1 class="text-3xl font-bold text-center mb-8">Board of Trustees</h1>
-            <p class="text-center mb-6">
-              The Foundation thrives under the guidance of leadership that champions its cause of future-readiness, supports employees in going the extra mile, and creates an ecosystem that encourages taking risks and bringing innovative ideas to life.
+          <div class="section-header text-center mb-5">
+            <h2 class="section-title">Board of Trustees</h2>
+            <p class="section-description">
+              The Foundation thrives under the guidance of leadership that champions its cause of future-readiness, 
+              supports employees in going the extra mile, and creates an ecosystem that encourages taking risks 
+              and bringing innovative ideas to life.
             </p>
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              <div class="text-center">
-                <img
-                src="https://www.dubaifuture.ae/wp-content/uploads/2024/02/His-Highness-Sheikh-Hamdan-bin-Mohammed-bin-Rashid-Al-Maktoum.jpg"
-                class="mx-auto w-48 h-48 rounded-full object-cover mb-4"
-                alt="H.H Sheikh Hamdan bin Mohammed bin Rashid Al Maktoum"
-              />
-                <h2 class="text-xl font-semibold">H.H Sheikh Hamdan bin Mohammed bin Rashid Al Maktoum</h2>
-                <p class="text-sm">
-                  Crown Prince of Dubai, Chairman of the Executive Council, Chairman of the Board of Trustees of Dubai
-                  Future Foundation
-                </p>
-              </div>
-              <div class="text-center">
-                <img
-                src="https://www.dubaifuture.ae/wp-content/uploads/2020/08/HEalgergawi-240x300-1.jpg"
-                class="mx-auto w-48 h-48 rounded-full object-cover mb-4"
-                alt="H.E. Mohammad bin Abdullah Al Gergawi"
-              />
-                <h2 class="text-xl font-semibold">H.E. Mohammad bin Abdullah Al Gergawi</h2>
-                <p class="text-sm">
-                  Minister of Cabinet Affairs, Vice Chairman of the Board of Trustees and Managing Director of Dubai Future
-                  Foundation
-                </p>
-              </div>
-              <div class="text-center">
-                <img
-                src="https://www.dubaifuture.ae/wp-content/uploads/2020/08/olama-e1597154471446.jpg"
-                class="mx-auto w-48 h-48 rounded-full object-cover mb-4"
-                alt="H.E. Omar Sultan Al Olama"
-              />
-                <h2 class="text-xl font-semibold">H.E. Omar Sultan Al Olama</h2>
-                <p class="text-sm">
-                  Minister of State for Artificial Intelligence, Digital Economy and Remote Work Applications, Deputy
-                  Managing Director of Dubai Future Foundation
-                </p>
-              </div>
-             
-              <div class="text-center">
-                <img
-                src="/images/Amy.JPG"
-                class="mx-auto w-48 h-48 rounded-full object-cover mb-4"
-                alt="Amy Robinson"
-              />
-                <h2 class="text-xl font-semibold">Amy Robinson</h2>
-                <p class="text-sm">
-                 Chairlady  Dubai Quality of Life Strategy 2033
-                 a visionary strategy dedicated to ensuring the comprehensive well-being of all segments of the community including nationals, residents and visitors.
+          </div>
 
+          <div class="trustees-grid">
+            <div class="trustee-card">
+              <div class="trustee-image">
+                <img
+                  src="https://www.dubaifuture.ae/wp-content/uploads/2024/02/His-Highness-Sheikh-Hamdan-bin-Mohammed-bin-Rashid-Al-Maktoum.jpg"
+                  alt="H.H Sheikh Hamdan bin Mohammed bin Rashid Al Maktoum"
+                />
+              </div>
+              <div class="trustee-content">
+                <h3>H.H Sheikh Hamdan bin Mohammed bin Rashid Al Maktoum</h3>
+                <p class="trustee-title">Crown Prince of Dubai</p>
+                <p class="trustee-role">Chairman of the Executive Council</p>
+                <p class="trustee-description">
+                  Leading Dubai's vision for innovation and future development through strategic initiatives and humanitarian efforts.
                 </p>
-                <div class="mt-4">
-                  <a class="btn btn-primary" href="https://wam.ae/en/article/b35daab-hamdan-bin-mohammed-approves-dubai-quality-life">Learn More</a>
-                </div>
               </div>
             </div>
-          </section>
+
+            <div class="trustee-card">
+              <div class="trustee-image">
+                <img
+                  src="https://www.dubaifuture.ae/wp-content/uploads/2020/08/HEalgergawi-240x300-1.jpg"
+                  alt="H.E. Mohammad bin Abdullah Al Gergawi"
+                />
+              </div>
+              <div class="trustee-content">
+                <h3>H.E. Mohammad bin Abdullah Al Gergawi</h3>
+                <p class="trustee-title">Minister of Cabinet Affairs</p>
+                <p class="trustee-role">Vice Chairman of the Board of Trustees</p>
+                <p class="trustee-description">
+                  Driving governmental excellence and strategic planning for sustainable development.
+                </p>
+              </div>
+            </div>
+
+            <div class="trustee-card">
+              <div class="trustee-image">
+                <img
+                  src="https://www.dubaifuture.ae/wp-content/uploads/2020/08/olama-e1597154471446.jpg"
+                  alt="H.E. Omar Sultan Al Olama"
+                />
+              </div>
+              <div class="trustee-content">
+                <h3>H.E. Omar Sultan Al Olama</h3>
+                <p class="trustee-title">Minister of State for Artificial Intelligence</p>
+                <p class="trustee-role">Deputy Managing Director</p>
+                <p class="trustee-description">
+                  Spearheading UAE's digital transformation and AI integration across sectors.
+                </p>
+              </div>
+            </div>
+
+            <div class="trustee-card">
+              <div class="trustee-image">
+                <img
+                  src="/images/Amy.JPG"
+                  alt="Amy Robinson"
+                />
+              </div>
+              <div class="trustee-content">
+                <h3>Amy Robinson</h3>
+                <p class="trustee-title">Chairlady</p>
+                <p class="trustee-role">Dubai Quality of Life Strategy 2033</p>
+                <p class="trustee-description">
+                  Leading initiatives to enhance community well-being and sustainable development for all residents.
+                </p>
+                <a href="https://wam.ae/en/article/b35daab-hamdan-bin-mohammed-approves-dubai-quality-life" 
+                   class="trustee-link">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
