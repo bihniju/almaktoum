@@ -1,0 +1,24 @@
+.image-container {
+    width: 100%; /* Ensure the container takes the full width */
+    height: 300px; /* Set a fixed height or adjust as needed */
+    overflow: hidden; /* Hide any content that exceeds the container */
+    position: relative; /* Establish a positioning context for absolute positioning */
+}
+
+.image-container img {
+    width: 100%; /* Make the image fill the container width */
+    height: 100%; /* Make the image fill the container height */
+    object-fit: cover; /* Use the object-fit property to cover the container */
+    object-position: center center; /* Center the content within the container */
+    position: absolute; /* Position the image absolutely within the container */
+    top: 0;
+    left: 0;
+}
+
+
+/* Add this CSS to your stylesheet or within a <style> tag in your HTML document */
+.carousel-image {
+    width: 100%; /* Set the width to 100% to make the image responsive */
+    height: 300px; /* Set the height to your desired value */
+    object-fit: cover; /* Use object-fit to cover the container while maintaining aspect ratio */
+}
