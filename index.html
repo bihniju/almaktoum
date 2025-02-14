@@ -35,6 +35,32 @@ s0.parentNode.insertBefore(s1,s0);
 
   <body id="section_1">
     <div id="google_translate_element"></div>
+    <script>
+      function copyShareLink(event, articleId) {
+        event.preventDefault();
+        const url = window.location.origin + window.location.pathname + '#' + articleId;
+        navigator.clipboard.writeText(url).then(() => {
+          const button = event.target.closest('a');
+          const originalText = button.innerHTML;
+          button.innerHTML = '<i class="bi-check"></i> Link Copied!';
+          setTimeout(() => {
+            button.innerHTML = originalText;
+          }, 2000);
+        });
+      }
+
+      // Handle smooth scrolling to news items when page loads with a hash
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.location.hash) {
+          const targetNews = document.querySelector(`[data-news-id="${window.location.hash.substring(1)}"]`);
+          if (targetNews) {
+            setTimeout(() => {
+              targetNews.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+          }
+        }
+      });
+    </script>
     <header class="site-header">
       <div class="container">
         <div class="row">
@@ -817,7 +843,7 @@ s0.parentNode.insertBefore(s1,s0);
             </div>
 
             <div class="col-lg-7 col-12">
-              <div class="news-block">
+              <div class="news-block" data-news-id="argentina">
                 <div class="news-block-top">
                   <a href="argentina-news-detail.html">
                     <img
@@ -858,6 +884,12 @@ s0.parentNode.insertBefore(s1,s0);
                         0 Comments
                       </p>
                     </div>
+                    
+                    <div class="news-block-share">
+                      <a href="#" onclick="copyShareLink(event, 'argentina')" class="btn btn-sm custom-btn" title="Click to copy share link">
+                        <i class="bi-share"></i> Share
+                      </a>
+                    </div>
                   </div>
 
                   <div class="news-block-title mb-2">
@@ -876,7 +908,7 @@ s0.parentNode.insertBefore(s1,s0);
                 </div>
               </div>
 
-              <div class="news-block">
+              <div class="news-block" data-news-id="quality-life">
                 <div class="news-block-top">
                   <a href="#">
                     <img
@@ -916,6 +948,12 @@ s0.parentNode.insertBefore(s1,s0);
                         190,110 Comments
                       </p>
                     </div>
+                    
+                    <div class="news-block-share">
+                      <a href="#" onclick="copyShareLink(event, 'quality-life')" class="btn btn-sm custom-btn" title="Click to copy share link">
+                        <i class="bi-share"></i> Share
+                      </a>
+                    </div>
                   </div>
 
                   <div class="news-block-title mb-2">
@@ -936,7 +974,7 @@ s0.parentNode.insertBefore(s1,s0);
                 </div>
               </div>
 
-              <div class="news-block">
+              <div class="news-block" data-news-id="santorini">
                 <div class="news-block-top">
                   <a href="#">
                     <img
@@ -976,6 +1014,12 @@ s0.parentNode.insertBefore(s1,s0);
                         21,110 Comments
                       </p>
                     </div>
+                    
+                    <div class="news-block-share">
+                      <a href="#" onclick="copyShareLink(event, 'santorini')" class="btn btn-sm custom-btn" title="Click to copy share link">
+                        <i class="bi-share"></i> Share
+                      </a>
+                    </div>
                   </div>
 
                   <div class="news-block-title mb-2">
@@ -998,7 +1042,7 @@ s0.parentNode.insertBefore(s1,s0);
                 </div>
               </div>
 
-              <div class="news-block">
+              <div class="news-block" data-news-id="anonymous">
                 <div class="news-block-top">
                   <a href="#">
                     <img
@@ -1038,6 +1082,12 @@ s0.parentNode.insertBefore(s1,s0);
                         12,119 Comments
                       </p>
                     </div>
+                    
+                    <div class="news-block-share">
+                      <a href="#" onclick="copyShareLink(event, 'anonymous')" class="btn btn-sm custom-btn" title="Click to copy share link">
+                        <i class="bi-share"></i> Share
+                      </a>
+                    </div>
                   </div>
 
                   <div class="news-block-title mb-2">
@@ -1059,7 +1109,7 @@ s0.parentNode.insertBefore(s1,s0);
                 </div>
               </div>
 
-              <div class="news-block mt-3">
+              <div class="news-block mt-3" data-news-id="seychelles">
                 <div class="news-block-top">
                   <a href="news-detail.html">
                     <img
@@ -1098,6 +1148,12 @@ s0.parentNode.insertBefore(s1,s0);
                         <i class="bi-chat-left custom-icon me-1"></i>
                         35 Comments
                       </p>
+                    </div>
+                    
+                    <div class="news-block-share">
+                      <a href="#" onclick="copyShareLink(event, 'seychelles')" class="btn btn-sm custom-btn" title="Click to copy share link">
+                        <i class="bi-share"></i> Share
+                      </a>
                     </div>
                   </div>
 
