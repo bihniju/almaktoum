@@ -635,7 +635,7 @@ s0.parentNode.insertBefore(s1,s0);
 
       /* Modern styling for Board of Trustees section */
       .trustees-section {
-        background: #f8f9fa;
+        padding: 4rem 0;
       }
 
       .section-header {
@@ -643,15 +643,22 @@ s0.parentNode.insertBefore(s1,s0);
         margin: 0 auto 4rem;
       }
 
-      .section-description {
-        font-size: 1.1rem;
-        color: #666;
-        line-height: 1.8;
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
       }
 
-      .trustees-container {
+      .section-description {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #666;
+      }
+
+      .trustees-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2rem;
         max-width: 1400px;
         margin: 0 auto;
@@ -661,131 +668,135 @@ s0.parentNode.insertBefore(s1,s0);
         background: white;
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        height: 100%;
       }
 
       .trustee-card:hover {
         transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
       }
 
-      .trustee-image-wrapper {
-        width: 100%;
-        height: 300px;
+      .trustee-image {
+        position: relative;
+        padding-top: 100%;
         overflow: hidden;
       }
 
-      .trustee-image-wrapper img {
+      .trustee-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.3s ease;
+        transition: transform 0.5s ease;
       }
 
-      .trustee-card:hover .trustee-image-wrapper img {
+      .trustee-card:hover .trustee-image img {
         transform: scale(1.05);
       }
 
-      .trustee-info {
+      .trustee-content {
         padding: 2rem;
       }
 
-      .trustee-info h3 {
-        font-size: 1.3rem;
+      .trustee-content h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
         color: #2b2b2b;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
       }
 
-      .trustee-info p {
+      .trustee-title {
+        font-size: 1rem;
+        color: var(--primary-color);
+        margin-bottom: 0.25rem;
+      }
+
+      .trustee-role {
+        font-size: 0.9rem;
         color: #666;
-        line-height: 1.6;
         margin-bottom: 1rem;
       }
 
       .trustee-description {
-        font-style: italic;
-        color: #888;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 1.5rem;
       }
 
-      .btn-primary {
-        display: inline-block;
-        padding: 0.8rem 2rem;
-        border-radius: 30px;
-        background: var(--primary-color);
-        color: white;
+      .trustee-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        font-size: 0.9rem;
+        font-weight: 600;
         text-decoration: none;
         transition: all 0.3s ease;
       }
 
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.3);
-      }
-
-      /* Responsive Design */
-      @media (max-width: 992px) {
-        .story-container {
-          flex-direction: column-reverse;
-          gap: 2rem;
-        }
-
-        .story-image {
-          margin-bottom: 2rem;
-        }
-
-        .trustees-container {
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
+      .trustee-link:hover {
+        gap: 0.75rem;
+        color: #2b2b2b;
       }
 
       @media (max-width: 768px) {
-        .section-title {
-          font-size: 2rem;
+        .trustees-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 1.5rem;
         }
 
-        .story-stats {
-          gap: 2rem;
+        .trustee-content {
           padding: 1.5rem;
-          flex-direction: row;
-          justify-content: center;
-          margin: 2rem -1rem;
         }
-        
-        .stat-item {
-          flex: 0 1 auto;
-          min-width: 120px;
-        }
-        
-        .stat-number {
-          font-size: 2.5rem;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-        }
-        
-        .stat-suffix {
+
+        .section-title {
           font-size: 2rem;
-          margin-left: 0.25rem;
-        }
-        
-        .stat-label {
-          font-size: 1rem;
-          margin-top: 0.25rem;
         }
       }
 
       @media (max-width: 480px) {
-        .story-stats {
-          gap: 1.5rem;
-          padding: 1rem;
+        .trustees-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Add this style for the hero image */
+      .hero-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .volunteering-section {
+        background-color: #f8f9fa;
+        overflow: hidden;
+      }
+
+      .volunteering-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        transition: transform 0.5s ease;
+      }
+
+      .volunteering-image:hover img {
+        transform: translateY(-10px);
+      }
+
+      @media (max-width: 991px) {
+        .volunteering-image {
+          margin-top: 2rem;
         }
         
-        .stat-number {
-          font-size: 2rem;
-        }
-        
-        .stat-suffix {
-          font-size: 1.5rem;
+        .volunteering-content {
+          text-align: center;
         }
       }
     </style>
@@ -936,79 +947,7 @@ s0.parentNode.insertBefore(s1,s0);
     </nav>
 
     <main>
-      <section class="hero-section">
-        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="hero-slide-content">
-                <div class="hero-slide-bg" style="background-image: url('images/slide/princeslide1.jpg')"></div>
-                <div class="hero-slide-overlay"></div>
-                <div class="container">
-                  <div class="hero-content-wrapper">
-                    <div class="hero-content animate__animated animate__fadeInUp">
-                      <span class="hero-subtitle">Making a Difference</span>
-                      <h1>Together We Can Change Lives</h1>
-                      <p>Join us in our mission to create lasting impact and transform communities through compassion and action.</p>
-                      <div class="hero-buttons">
-                        <a href="donate.html" class="btn btn-primary">Donate Now</a>
-                        <a href="#section_2" class="btn btn-outline">Learn More</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <div class="hero-slide-content">
-                <div class="hero-slide-bg" style="background-image: url('images/slide/princeslide3.jpg')"></div>
-                <div class="hero-slide-overlay"></div>
-                <div class="container">
-                  <div class="hero-content-wrapper">
-                    <div class="hero-content animate__animated animate__fadeInUp">
-                      <span class="hero-subtitle">Empowering Communities</span>
-                      <h1>Building a Better Tomorrow</h1>
-                      <p>Support our initiatives in education, healthcare, and sustainable development for communities worldwide.</p>
-                      <div class="hero-buttons">
-                        <a href="#section_3" class="btn btn-primary">Our Projects</a>
-                        <a href="#section_4" class="btn btn-outline">Get Involved</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <div class="hero-slide-content">
-                <div class="hero-slide-bg" style="background-image: url('images/slide/princeslide4.jpg')"></div>
-                <div class="hero-slide-overlay"></div>
-                <div class="container">
-                  <div class="hero-content-wrapper">
-                    <div class="hero-content animate__animated animate__fadeInUp">
-                      <span class="hero-subtitle">Global Impact</span>
-                      <h1>Reaching Those in Need</h1>
-                      <p>From local communities to international aid, we're committed to making positive change wherever it's needed most.</p>
-                      <div class="hero-buttons">
-                        <a href="#section_4" class="btn btn-primary">Volunteer</a>
-                        <a href="#section_6" class="btn btn-outline">Contact Us</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-controls">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-              <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-              <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
-            </div>
-          </div>
-        </div>
-      </section>
+     
 
       <section class="section-padding">
         <div class="container">
@@ -1148,123 +1087,134 @@ s0.parentNode.insertBefore(s1,s0);
 
       <section class="volunteering-section section-padding">
         <div class="container">
-          <div class="volunteering-wrapper">
-            <!-- Left Content -->
-            <div class="volunteering-content">
-              <h2 class="section-title">Volunteering</h2>
-              <div class="section-subtitle">Why Charity Work is Important</div>
-              
-              <div class="volunteering-text">
-                <p class="lead-text">
-                  The positive effects of charity work are known worldwide. Whether you are working directly in your community or for a country that is halfway around the world, you can make a positive impact on another person's life.
-                </p>
+          <div class="row align-items-center">
+            <div class="col-lg-6 col-12">
+              <div class="volunteering-content">
+                <h2 class="section-title">Volunteering</h2>
+                <div class="section-subtitle mb-4">Why Charity Work is Important</div>
                 
-                <div class="benefits-grid">
-                  <div class="benefit-item">
-                    <i class="bi bi-heart-fill"></i>
-                    <h4>Make a Difference</h4>
-                    <p>Impact lives and create positive change in communities worldwide.</p>
-                  </div>
-                  <div class="benefit-item">
-                    <i class="bi bi-people-fill"></i>
-                    <h4>Build Community</h4>
-                    <p>Connect with like-minded individuals and strengthen social bonds.</p>
-                  </div>
-                  <div class="benefit-item">
-                    <i class="bi bi-star-fill"></i>
-                    <h4>Gain Experience</h4>
-                    <p>Develop new skills and broaden your perspective on life.</p>
-                  </div>
-                  <div class="benefit-item">
-                    <i class="bi bi-globe2"></i>
-                    <h4>Global Impact</h4>
-                    <p>Contribute to worldwide initiatives and humanitarian causes.</p>
+                <div class="volunteering-text">
+                  <p class="lead-text mb-5">
+                    The positive effects of charity work are known worldwide. Whether you are working directly in your community or for a country that is halfway around the world, you can make a positive impact on another person's life.
+                  </p>
+                  
+                  <div class="benefits-grid row g-4">
+                    <div class="col-md-6">
+                      <div class="benefit-item p-4">
+                        <i class="bi bi-heart-fill mb-3 text-primary fs-3"></i>
+                        <h4 class="mb-3">Make a Difference</h4>
+                        <p>Impact lives and create positive change in communities worldwide.</p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="benefit-item p-4">
+                        <i class="bi bi-people-fill mb-3 text-primary fs-3"></i>
+                        <h4 class="mb-3">Build Community</h4>
+                        <p>Connect with like-minded individuals and strengthen social bonds.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Right Illustration -->
-            <div class="volunteering-illustration">
-              <div class="illustration-wrapper">
-                <img src="images/volunteering-illustration.svg" alt="Volunteering Illustration" class="main-illustration">
-                <div class="floating-elements">
-                  <img src="images/element-1.svg" alt="" class="float-element-1">
-                  <img src="images/element-2.svg" alt="" class="float-element-2">
-                  <img src="images/element-3.svg" alt="" class="float-element-3">
-                </div>
+            <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+              <div class="volunteering-image text-center">
+                <img 
+                  src="https://img.freepik.com/free-vector/people-donate-money-charity_107791-16828.jpg?w=1380" 
+                  alt="People donating money to charity" 
+                  class="img-fluid rounded-3 animate__animated animate__fadeIn"
+                />
               </div>
             </div>
           </div>
-
-          <!-- Pattern Overlay -->
-          <div class="pattern-overlay"></div>
         </div>
       </section>
 
       <section class="cta-section section-padding section-bg">
         <div class="container">
-          <section class="board-of-trustees">
-            <h1 class="text-3xl font-bold text-center mb-8">Board of Trustees</h1>
-            <p class="text-center mb-6">
-              The Foundation thrives under the guidance of leadership that champions its cause of future-readiness, supports employees in going the extra mile, and creates an ecosystem that encourages taking risks and bringing innovative ideas to life.
-            </p>
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              <div class="text-center">
-                <img
-                src="https://www.dubaifuture.ae/wp-content/uploads/2024/02/His-Highness-Sheikh-Hamdan-bin-Mohammed-bin-Rashid-Al-Maktoum.jpg"
-                class="mx-auto w-48 h-48 rounded-full object-cover mb-4"
-                alt="H.H Sheikh Hamdan bin Mohammed bin Rashid Al Maktoum"
-              />
-                <h2 class="text-xl font-semibold">H.H Sheikh Hamdan bin Mohammed bin Rashid Al Maktoum</h2>
-                <p class="text-sm">
-                  Crown Prince of Dubai, Chairman of the Executive Council, Chairman of the Board of Trustees of Dubai
-                  Future Foundation
-                </p>
-              </div>
-              <div class="text-center">
-                <img
-                src="https://www.dubaifuture.ae/wp-content/uploads/2020/08/HEalgergawi-240x300-1.jpg"
-                class="mx-auto w-48 h-48 rounded-full object-cover mb-4"
-                alt="H.E. Mohammad bin Abdullah Al Gergawi"
-              />
-                <h2 class="text-xl font-semibold">H.E. Mohammad bin Abdullah Al Gergawi</h2>
-                <p class="text-sm">
-                  Minister of Cabinet Affairs, Vice Chairman of the Board of Trustees and Managing Director of Dubai Future
-                  Foundation
-                </p>
-              </div>
-              <div class="text-center">
-                <img
-                src="https://www.dubaifuture.ae/wp-content/uploads/2020/08/olama-e1597154471446.jpg"
-                class="mx-auto w-48 h-48 rounded-full object-cover mb-4"
-                alt="H.E. Omar Sultan Al Olama"
-              />
-                <h2 class="text-xl font-semibold">H.E. Omar Sultan Al Olama</h2>
-                <p class="text-sm">
-                  Minister of State for Artificial Intelligence, Digital Economy and Remote Work Applications, Deputy
-                  Managing Director of Dubai Future Foundation
-                </p>
-              </div>
-             
-              <div class="text-center">
-                <img
-                src="/images/Amy.JPG"
-                class="mx-auto w-48 h-48 rounded-full object-cover mb-4"
-                alt="Amy Robinson"
-              />
-                <h2 class="text-xl font-semibold">Amy Robinson</h2>
-                <p class="text-sm">
-                 Chairlady  Dubai Quality of Life Strategy 2033
-                 a visionary strategy dedicated to ensuring the comprehensive well-being of all segments of the community including nationals, residents and visitors.
+          <div class="trustees-section">
+            <div class="section-header text-center mb-5">
+              <h2 class="section-title">Board of Trustees</h2>
+              <p class="section-description">
+                The Foundation thrives under the guidance of leadership that champions its cause of future-readiness, 
+                supports employees in going the extra mile, and creates an ecosystem that encourages taking risks 
+                and bringing innovative ideas to life.
+              </p>
+            </div>
 
-                </p>
-                <div class="mt-4">
-                  <a class="btn btn-primary" href="https://wam.ae/en/article/b35daab-hamdan-bin-mohammed-approves-dubai-quality-life">Learn More</a>
+            <div class="trustees-grid">
+              <div class="trustee-card">
+                <div class="trustee-image">
+                  <img
+                    src="https://www.dubaifuture.ae/wp-content/uploads/2024/02/His-Highness-Sheikh-Hamdan-bin-Mohammed-bin-Rashid-Al-Maktoum.jpg"
+                    alt="H.H Sheikh Hamdan bin Mohammed bin Rashid Al Maktoum"
+                  />
+                </div>
+                <div class="trustee-content">
+                  <h3>H.H Sheikh Hamdan bin Mohammed bin Rashid Al Maktoum</h3>
+                  <p class="trustee-title">Crown Prince of Dubai</p>
+                  <p class="trustee-role">Chairman of the Executive Council</p>
+                  <p class="trustee-description">
+                    Leading Dubai's vision for innovation and future development through strategic initiatives and humanitarian efforts.
+                  </p>
+                </div>
+              </div>
+
+              <div class="trustee-card">
+                <div class="trustee-image">
+                  <img
+                    src="https://www.dubaifuture.ae/wp-content/uploads/2020/08/HEalgergawi-240x300-1.jpg"
+                    alt="H.E. Mohammad bin Abdullah Al Gergawi"
+                  />
+                </div>
+                <div class="trustee-content">
+                  <h3>H.E. Mohammad bin Abdullah Al Gergawi</h3>
+                  <p class="trustee-title">Minister of Cabinet Affairs</p>
+                  <p class="trustee-role">Vice Chairman of the Board of Trustees</p>
+                  <p class="trustee-description">
+                    Driving governmental excellence and strategic planning for sustainable development.
+                  </p>
+                </div>
+              </div>
+
+              <div class="trustee-card">
+                <div class="trustee-image">
+                  <img
+                    src="https://www.dubaifuture.ae/wp-content/uploads/2020/08/olama-e1597154471446.jpg"
+                    alt="H.E. Omar Sultan Al Olama"
+                  />
+                </div>
+                <div class="trustee-content">
+                  <h3>H.E. Omar Sultan Al Olama</h3>
+                  <p class="trustee-title">Minister of State for Artificial Intelligence</p>
+                  <p class="trustee-role">Deputy Managing Director</p>
+                  <p class="trustee-description">
+                    Spearheading UAE's digital transformation and AI integration across sectors.
+                  </p>
+                </div>
+              </div>
+
+              <div class="trustee-card">
+                <div class="trustee-image">
+                  <img
+                    src="/images/Amy.JPG"
+                    alt="Amy Robinson"
+                  />
+                </div>
+                <div class="trustee-content">
+                  <h3>Amy Robinson</h3>
+                  <p class="trustee-title">Chairlady</p>
+                  <p class="trustee-role">Dubai Quality of Life Strategy 2033</p>
+                  <p class="trustee-description">
+                    Leading initiatives to enhance community well-being and sustainable development for all residents.
+                  </p>
+                  <a href="https://wam.ae/en/article/b35daab-hamdan-bin-mohammed-approves-dubai-quality-life" 
+                     class="trustee-link">Learn More <i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
       </section>
 
