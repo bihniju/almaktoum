@@ -34,8 +34,8 @@
 
         .donation-container {
             max-width: 1000px;
-            margin: 2rem auto;
-            padding: 2rem;
+            margin: 0 auto;
+            padding: 1rem;
         }
 
         .donation-card {
@@ -221,12 +221,20 @@
         }
 
         @media (max-width: 768px) {
-            .donation-header {
-                padding: 2rem 1rem;
+            .donation-container {
+                padding: 0;
+                margin-top: 0;
             }
 
-            .donation-header h1 {
-                font-size: 2rem;
+            .donation-card {
+                border-radius: 0;
+                margin-bottom: 0;
+                box-shadow: none;
+            }
+
+            .donation-header {
+                padding: 2.5rem 1.5rem;
+                border-radius: 0;
             }
 
             .donation-body {
@@ -235,6 +243,102 @@
 
             .amount-options {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .amount-label {
+                padding: 1rem 0.5rem;
+            }
+
+            .payment-method {
+                padding: 1.25rem;
+                margin-bottom: 1rem;
+                border-radius: 8px;
+            }
+
+            .crypto-address {
+                padding: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .form-control {
+                padding: 0.75rem 1rem;
+            }
+
+            .btn-donate {
+                padding: 1rem;
+                margin-top: 1.5rem;
+            }
+
+            .row {
+                margin-left: -0.5rem;
+                margin-right: -0.5rem;
+            }
+
+            .col-md-6 {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+
+            .payment-methods {
+                margin-top: 1.5rem;
+            }
+
+            .payment-method .d-flex {
+                gap: 1rem;
+            }
+
+            .payment-details {
+                margin-top: 1rem;
+                padding: 1rem;
+                background: #f8f9fa;
+                border-radius: 8px;
+            }
+
+            .qr-code {
+                width: 180px;
+                height: 180px;
+                margin: 1rem auto;
+            }
+
+            h1 {
+                font-size: 2rem !important;
+            }
+
+            h5 {
+                font-size: 1.1rem;
+                margin-bottom: 1rem !important;
+            }
+
+            .lead {
+                font-size: 1.1rem;
+            }
+
+            .form-group {
+                margin-bottom: 1.25rem;
+            }
+
+            .form-label {
+                margin-bottom: 0.5rem;
+                font-weight: 500;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .donation-header {
+                padding: 2rem 1rem;
+            }
+
+            .donation-body {
+                padding: 1.25rem;
+            }
+
+            .amount-options {
+                grid-template-columns: 1fr;
+            }
+
+            .amount-label {
+                padding: 0.875rem;
             }
         }
 
