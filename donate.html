@@ -261,94 +261,37 @@
 
         /* Navbar Styles */
         .navbar {
-            padding: 1rem 0;
-            transition: all 0.3s ease;
+            padding: 0.5rem 0;
         }
 
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .navbar-brand img.logo {
-            height: 60px;
-            width: auto;
-            transition: height 0.3s ease;
-        }
-
-        .navbar-brand span {
-            display: flex;
-            flex-direction: column;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--secondary-color);
-        }
-
-        .navbar-brand small {
-            font-size: 0.85rem;
-            color: #666;
-            font-weight: 400;
+        .navbar-nav {
+            gap: 0.5rem;
         }
 
         .nav-link {
-            color: #333;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary-color);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 50%;
-            background-color: var(--primary-color);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 80%;
-        }
-
-        .custom-border-btn {
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            border-radius: 30px;
-            padding: 0.5rem 1.5rem;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem !important;
+            border-radius: 8px;
             transition: all 0.3s ease;
         }
 
-        .custom-border-btn:hover,
-        .custom-border-btn.active {
-            background: var(--primary-color);
-            color: white !important;
+        .nav-link i {
+            font-size: 1.1rem;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(92,184,92,0.1);
         }
 
         .dropdown-menu {
-            border: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-radius: 12px;
+            padding: 0.5rem;
+            min-width: 200px;
         }
 
         .dropdown-item {
-            padding: 0.75rem 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-item:hover {
-            background: rgba(92,184,92,0.1);
-            color: var(--primary-color);
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
         }
 
         @media (max-width: 991px) {
@@ -358,6 +301,49 @@
                 border-radius: 12px;
                 box-shadow: 0 5px 15px rgba(0,0,0,0.1);
                 margin-top: 1rem;
+            }
+
+            .navbar-nav {
+                gap: 0.25rem;
+            }
+
+            .nav-link {
+                padding: 0.75rem 1rem !important;
+                border-radius: 8px;
+            }
+
+            .nav-item {
+                width: 100%;
+            }
+
+            .nav-link i {
+                width: 24px;
+                text-align: center;
+            }
+
+            .dropdown-menu {
+                background: transparent;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .dropdown-item {
+                padding: 0.75rem 1rem;
+                margin-left: 2.25rem;
+            }
+
+            .custom-border-btn {
+                justify-content: center;
+                margin-top: 0.5rem;
+                background: var(--primary-color);
+                color: white !important;
+                border-color: var(--primary-color);
+            }
+
+            .navbar-brand {
+                padding: 0.5rem 0;
             }
 
             .navbar-brand img.logo {
@@ -371,15 +357,15 @@
             .navbar-brand small {
                 font-size: 0.75rem;
             }
+        }
 
-            .nav-link {
-                padding: 0.75rem 1rem;
+        @media (max-width: 576px) {
+            .navbar-brand span {
+                display: none;
             }
 
-            .custom-border-btn {
-                width: 100%;
-                text-align: center;
-                margin-top: 0.5rem;
+            .navbar-brand img.logo {
+                height: 40px;
             }
         }
 
@@ -463,19 +449,31 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house-door me-1"></i>
+                            Home
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#section_2">About</a>
+                        <a class="nav-link" href="index.html#section_2">
+                            <i class="bi bi-info-circle me-1"></i>
+                            About
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#section_3">Causes</a>
+                        <a class="nav-link" href="index.html#section_3">
+                            <i class="bi bi-heart me-1"></i>
+                            Causes
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#section_4">Volunteer</a>
+                        <a class="nav-link" href="index.html#section_4">
+                            <i class="bi bi-people me-1"></i>
+                            Volunteer
+                        </a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -486,7 +484,10 @@
                             role="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
-                        >News</a>
+                        >
+                            <i class="bi bi-newspaper me-1"></i>
+                            News
+                        </a>
 
                         <ul
                             class="dropdown-menu dropdown-menu-light"
@@ -498,11 +499,17 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#section_6">Contact</a>
+                        <a class="nav-link" href="index.html#section_6">
+                            <i class="bi bi-envelope me-1"></i>
+                            Contact
+                        </a>
                     </li>
 
-                    <li class="nav-item ms-3">
-                        <a class="nav-link custom-btn custom-border-btn btn active" href="donate.html">Donate</a>
+                    <li class="nav-item ms-lg-3">
+                        <a class="nav-link custom-btn custom-border-btn btn active" href="donate.html">
+                            <i class="bi bi-heart-fill me-1"></i>
+                            Donate
+                        </a>
                     </li>
                 </ul>
             </div>
