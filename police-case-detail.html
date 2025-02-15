@@ -5,9 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Dubai Police Thwarts Major Phone Scam Operation" />
     <title>Police Case Detail - AL MAKTOUM FOUNDATION</title>
+    
+    <!-- CSS FILES -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/bootstrap-icons.css" rel="stylesheet" />
     <link href="css/templatemo-kind-heart-charity.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+      .news-block-share {
+        margin-left: auto;
+      }
+      
+      .share-btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        border-radius: 20px;
+        background-color: transparent;
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+      
+      .share-btn:hover {
+        background-color: var(--primary-color);
+        color: white;
+      }
+      
+      .share-btn i {
+        font-size: 0.875rem;
+      }
+
+      /* Navbar Improvements */
+      .navbar {
+        transition: all 0.3s ease;
+        padding: 1rem 0;
+      }
+
+      .navbar.navbar-sticky {
+        padding: 0.5rem 0;
+        background-color: rgba(255, 255, 255, 0.98) !important;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar .navbar-brand {
+        transition: all 0.3s ease;
+      }
+
+      .navbar.navbar-sticky .navbar-brand {
+        transform: scale(0.9);
+      }
+
+      .navbar .nav-link {
+        position: relative;
+        padding: 0.5rem 1rem !important;
+        transition: color 0.3s ease;
+      }
+
+      .navbar .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background-color: var(--primary-color);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .navbar .nav-link:hover::after,
+      .navbar .nav-link.active::after {
+        width: 80%;
+      }
+
+      @media (max-width: 768px) {
+        .navbar-collapse {
+          background: white;
+          padding: 1rem;
+          border-radius: 8px;
+          margin-top: 0.5rem;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      /* News Section Improvements */
+      .news-block {
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        margin-bottom: 2.5rem;
+        border: none;
+      }
+
+      .news-block-top {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+        margin: -1px;
+      }
+
+      .news-block-top img {
+        width: calc(100% + 2px);
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 0;
+        margin: -1px;
+      }
+
+      .news-block:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .news-block:hover .news-block-top img {
+        transform: scale(1.05);
+      }
+
+      .news-block-info {
+        padding: 2rem;
+        background: white;
+      }
+    </style>
     
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
@@ -45,48 +170,84 @@
     </header>
 
     <nav class="navbar navbar-expand-lg bg-light shadow-lg">
-      <!-- Same navbar as argentina-news-detail.html -->
       <div class="container">
         <a class="navbar-brand" href="index.html">
-          <img src="images/logowithout.jpg" class="logo img-fluid" alt="AL MAKTOUM FOUNDATION" />
+          <img
+            src="images/logowithout.jpg"
+            class="logo img-fluid"
+            alt=" AL MAKTOUM FOUNDATION"
+          />
           <span>
             AL MAKTOUM FOUNDATION
             <small>Non-profit Organization</small>
           </span>
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link click-scroll" href="index.html#section_1">Home</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="index.html#section_2">About</a>
+              <a class="nav-link click-scroll" href="index.html#section_2">About</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="index.html#section_3">Causes</a>
+              <a class="nav-link click-scroll" href="index.html#section_3">Causes</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="index.html#section_4">Volunteer</a>
+              <a class="nav-link click-scroll" href="index.html#section_4">Volunteer</a>
             </li>
+
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle active" href="#" id="navbarLightDropdownMenuLink" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">News</a>
-              <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                <li><a class="dropdown-item" href="news.html">News Listing</a></li>
-                <li><a class="dropdown-item active" href="#">News Detail</a></li>
+              <a
+                class="nav-link click-scroll dropdown-toggle active"
+                href="index.html#section_5"
+                id="navbarLightDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >News</a
+              >
+
+              <ul
+                class="dropdown-menu dropdown-menu-light"
+                aria-labelledby="navbarLightDropdownMenuLink"
+              >
+                <li>
+                  <a class="dropdown-item" href="news.html">News Listing</a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item active" href="police-case-detail.html">News Detail</a>
+                </li>
               </ul>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="index.html#section_6">Contact</a>
+              <a class="nav-link click-scroll" href="index.html#section_6">Contact</a>
             </li>
+
             <li class="nav-item ms-3">
-              <a class="nav-link custom-btn custom-border-btn btn" href="donate.html">Donate</a>
+              <a
+                class="nav-link custom-btn custom-border-btn btn"
+                href="donate.html"
+                >Donate</a
+              >
             </li>
           </ul>
         </div>

@@ -144,39 +144,30 @@ s0.parentNode.insertBefore(s1,s0);
       }
 
       /* News Section Improvements */
-      .news-section {
-        background-color: #f8f9fa;
-        padding: 5rem 0;
-      }
-
       .news-block {
         background: white;
-        border-radius: 16px;
+        border-radius: 24px;
         overflow: hidden;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        margin-bottom: 2rem;
-      }
-
-      .news-block:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        margin-bottom: 2.5rem;
+        border: none; /* Remove the border */
       }
 
       .news-block-top {
         position: relative;
         overflow: hidden;
+        aspect-ratio: 16/9;
+        margin: -1px; /* Compensate for any gap */
       }
 
       .news-block-top img {
-        width: 100%;
-        height: 300px;
+        width: calc(100% + 2px); /* Compensate for any gap */
+        height: 100%;
         object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-
-      .news-block:hover .news-block-top img {
-        transform: scale(1.05);
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 0; /* Remove image border radius */
+        margin: -1px; /* Compensate for any gap */
       }
 
       .news-category-block {
@@ -184,135 +175,172 @@ s0.parentNode.insertBefore(s1,s0);
         bottom: 0;
         left: 0;
         right: 0;
-        padding: 1rem;
-        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      }
-
-      .category-block-link {
-        display: inline-block;
-        background: var(--primary-color);
-        color: white !important;
-        padding: 0.25rem 1rem;
-        border-radius: 20px;
-        font-size: 0.875rem;
-        margin: 0.25rem;
-        transition: all 0.3s ease;
-      }
-
-      .category-block-link:hover {
-        background: white;
-        color: var(--primary-color) !important;
-        transform: translateY(-2px);
-      }
-
-      .news-block-info {
         padding: 1.5rem;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.7) 50%,
+          transparent 100%
+        );
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      /* Update the hover effect to be smoother */
+      .news-block:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .news-block:hover .news-block-top img {
+        transform: scale(1.05);
+      }
+
+      /* Ensure content area has proper spacing */
+      .news-block-info {
+        padding: 2rem;
+        background: white;
+      }
+
+      .news-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .news-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .news-meta-item i {
+        color: var(--primary-color);
+        font-size: 1.1rem;
+      }
+
+      .news-block-title {
+        margin-bottom: 1rem;
       }
 
       .news-block-title-link {
-        color: #2b2b2b;
-        font-size: 1.25rem;
-        font-weight: 600;
-        transition: color 0.3s ease;
+        color: #1a1a1a;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.4;
         display: -webkit-box;
+        display: box; /* Standard property */
         -webkit-line-clamp: 2;
-        line-clamp: 2;
+        line-clamp: 2; /* Standard property */
         -webkit-box-orient: vertical;
+        box-orient: vertical; /* Standard property */
         overflow: hidden;
+        text-overflow: ellipsis;
+        transition: color 0.3s ease;
       }
 
       .news-block-title-link:hover {
         color: var(--primary-color);
       }
 
+      .news-block-body {
+        margin-bottom: 1.5rem;
+      }
+
       .news-block-body p {
-        color: #6c757d;
-        font-size: 0.95rem;
-        line-height: 1.6;
+        color: #555;
+        line-height: 1.7;
         display: -webkit-box;
+        display: box; /* Standard property */
         -webkit-line-clamp: 3;
-        line-clamp: 3;
+        line-clamp: 3; /* Standard property */
         -webkit-box-orient: vertical;
+        box-orient: vertical; /* Standard property */
         overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .news-block-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
       }
 
       .share-btn {
-        padding: 0.4rem 1rem;
-        font-size: 0.875rem;
-        border-radius: 20px;
-        background-color: transparent;
-        border: 1px solid var(--primary-color);
-        color: var(--primary-color);
-        transition: all 0.3s ease;
+        background: #f5f5f5;
+        color: #444;
+        padding: 0.5rem 1.25rem;
+        border-radius: 100px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        border: none;
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
+        transition: all 0.3s ease;
       }
-      
+
       .share-btn:hover {
-        background-color: var(--primary-color);
+        background: var(--primary-color);
         color: white;
         transform: translateY(-2px);
       }
 
-      /* Responsive improvements */
+      .share-btn i {
+        font-size: 1rem;
+      }
+
+      /* Responsive adjustments */
       @media (max-width: 768px) {
         .news-block {
-          margin: 1rem 0;
-        }
-
-        .news-block-top img {
-          height: 200px;
+          margin-bottom: 2rem;
         }
 
         .news-block-info {
-          padding: 1rem;
+          padding: 1.5rem;
         }
 
         .news-block-title-link {
-          font-size: 1.1rem;
+          font-size: 1.25rem;
         }
 
-        .category-block-link {
-          padding: 0.2rem 0.8rem;
-          font-size: 0.8rem;
+        .news-meta {
+          gap: 1rem;
+          margin-bottom: 0.75rem;
+        }
+
+        .news-block-footer {
+          flex-direction: column;
+          gap: 1rem;
+          align-items: flex-start;
         }
 
         .share-btn {
           width: 100%;
           justify-content: center;
-          margin-top: 0.5rem;
-        }
-
-        .news-block-info .d-flex {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 0.5rem;
-        }
-
-        .news-block-author.mx-5 {
-          margin: 0 !important;
         }
       }
 
       @media (max-width: 576px) {
+        .news-block {
+          border-radius: 16px; /* Slightly smaller radius on mobile */
+        }
+        
+        .news-block-top {
+          margin: 0; /* Reset margin on mobile */
+        }
+        
         .news-block-top img {
-          height: 180px;
-        }
-
-        .news-block-body p {
-          -webkit-line-clamp: 2;
-          line-clamp: 2;
-        }
-
-        .news-category-block {
-          padding: 0.5rem;
-        }
-
-        .category-block-link {
-          margin: 0.15rem;
-          padding: 0.15rem 0.6rem;
-          font-size: 0.75rem;
+          width: 100%; /* Reset width on mobile */
+          margin: 0; /* Reset margin on mobile */
         }
       }
 
@@ -1182,6 +1210,46 @@ s0.parentNode.insertBefore(s1,s0);
           background: rgba(var(--primary-color-rgb), 0.1);
         }
       }
+
+      /* Telegram Button Styles */
+      .telegram-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        background-color: #0088cc;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 100px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(0, 136, 204, 0.2);
+      }
+
+      .telegram-btn:hover {
+        background-color: #0077b3;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 136, 204, 0.3);
+      }
+
+      .telegram-btn i {
+        font-size: 1.4rem;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .telegram-btn {
+          padding: 0.75rem 1.5rem;
+          font-size: 1rem;
+        }
+        
+        .telegram-btn i {
+          font-size: 1.2rem;
+        }
+      }
     </style>
   </head>
 
@@ -1556,6 +1624,17 @@ s0.parentNode.insertBefore(s1,s0);
                       </div>
                     </div>
                   </div>
+
+                  <!-- Add Telegram Contact Button -->
+                  <div class="telegram-contact mt-4 text-center">
+                    <a href="https://t.me/Hamdanalmaktoumfaz3" 
+                       class="telegram-btn"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                      <i class="bi bi-telegram"></i>
+                      <span>Share your stories</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1840,43 +1919,34 @@ s0.parentNode.insertBefore(s1,s0);
                   </a>
 
                   <div class="news-category-block">
-                    <a href="#" class="category-block-link">Dubai Police</a>
-                    <a href="#" class="category-block-link">Public Safety Alert</a>
+                    <a href="#" class="category-block-link">
+                      <i class="bi-shield"></i>
+                      Dubai Police
+                    </a>
+                    <a href="#" class="category-block-link">
+                      <i class="bi-exclamation-triangle"></i>
+                      Public Safety Alert
+                    </a>
                   </div>
                 </div>
 
                 <div class="news-block-info">
-                  <div class="d-flex mt-2">
-                    <div class="news-block-date">
-                      <p>
-                        <i class="bi-calendar4 custom-icon me-1"></i>
-                        Feb 15, 2025
-                      </p>
+                  <div class="news-meta">
+                    <div class="news-meta-item">
+                      <i class="bi-calendar4"></i>
+                      <span>Feb 15, 2025</span>
                     </div>
-
-                    <div class="news-block-author mx-5">
-                      <p>
-                        <i class="bi-person custom-icon me-1"></i>
-                        By Dubai Police
-                      </p>
+                    <div class="news-meta-item">
+                      <i class="bi-person"></i>
+                      <span>By Dubai Police</span>
                     </div>
-
-                    <div class="news-block-comment">
-                      <p>
-                        <i class="bi-chat-left custom-icon me-1"></i>
-                        156 Comments
-                      </p>
-                    </div>
-                    
-                    <div class="news-block-share">
-                      <button onclick="copyShareLink(event, 'scam-bust')" class="share-btn" title="Click to copy share link">
-                        <i class="bi-share"></i>
-                        <span>Share</span>
-                      </button>
+                    <div class="news-meta-item">
+                      <i class="bi-chat-left"></i>
+                      <span>156 Comments</span>
                     </div>
                   </div>
 
-                  <div class="news-block-title mb-2">
+                  <div class="news-block-title">
                     <h4>
                       <a href="police-case-detail.html" class="news-block-title-link">
                         Dubai Police Thwarts Major Phone Scam Operation Thanks to South African Tipster
@@ -1888,6 +1958,13 @@ s0.parentNode.insertBefore(s1,s0);
                     <p>
                       In a significant breakthrough, Dubai Police successfully dismantled a sophisticated phone scam network, leading to multiple arrests. The operation's success was made possible by crucial information from a vigilant South African national who alerted authorities about fake prize winning schemes targeting unsuspecting victims.
                     </p>
+                  </div>
+
+                  <div class="news-block-footer">
+                    <button onclick="copyShareLink(event, 'scam-bust')" class="share-btn" title="Click to copy share link">
+                      <i class="bi-share"></i>
+                      <span>Share this article</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -1903,46 +1980,34 @@ s0.parentNode.insertBefore(s1,s0);
                   </a>
 
                   <div class="news-category-block">
-                    <a href="#" class="category-block-link">Healthcare</a>
-
                     <a href="#" class="category-block-link">
+                      <i class="bi-heart-pulse"></i>
+                      Healthcare
+                    </a>
+                    <a href="#" class="category-block-link">
+                      <i class="bi-people"></i>
                       Children's Welfare
                     </a>
                   </div>
                 </div>
 
                 <div class="news-block-info">
-                  <div class="d-flex mt-2">
-                    <div class="news-block-date">
-                      <p>
-                        <i class="bi-calendar4 custom-icon me-1"></i>
-                        May 15, 2024
-                      </p>
+                  <div class="news-meta">
+                    <div class="news-meta-item">
+                      <i class="bi-calendar4"></i>
+                      <span>May 15, 2024</span>
                     </div>
-
-                    <div class="news-block-author mx-5">
-                      <p>
-                        <i class="bi-person custom-icon me-1"></i>
-                        By Maktoum Foundation
-                      </p>
+                    <div class="news-meta-item">
+                      <i class="bi-person"></i>
+                      <span>By Maktoum Foundation</span>
                     </div>
-
-                    <div class="news-block-comment">
-                      <p>
-                        <i class="bi-chat-left custom-icon me-1"></i>
-                        990,120 Comments
-                      </p>
-                    </div>
-                    
-                    <div class="news-block-share">
-                      <button onclick="copyShareLink(event, 'argentina')" class="share-btn" title="Click to copy share link">
-                        <i class="bi-share"></i>
-                        <span>Share</span>
-                      </button>
+                    <div class="news-meta-item">
+                      <i class="bi-chat-left"></i>
+                      <span>990,120 Comments</span>
                     </div>
                   </div>
 
-                  <div class="news-block-title mb-2">
+                  <div class="news-block-title">
                     <h4>
                       <a href="argentina-news-detail.html" class="news-block-title-link">
                         🌍 Welcome to the Official Charity Event by Maktoum Foundation 🇦🇪🇦🇷
@@ -1955,6 +2020,13 @@ s0.parentNode.insertBefore(s1,s0);
                       Join us in Argentina as we unite under the patronage of His Highness Prince Hamdan to support children's welfare and healthcare. This transformative initiative aims to revitalize an abandoned facility into a modern Zonal Acute School Hospital.
                     </p>
                   </div>
+
+                  <div class="news-block-footer">
+                    <button onclick="copyShareLink(event, 'argentina')" class="share-btn" title="Click to copy share link">
+                      <i class="bi-share"></i>
+                      <span>Share this article</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -1964,63 +2036,57 @@ s0.parentNode.insertBefore(s1,s0);
                     <img
                       src="https://asset.hamdan.ae/CPDAssets/News/2024/4827/145202421244902.JPG?RenditionID=21"
                       class="news-image img-fluid"
-                      alt=""
+                      alt="Dubai Quality of Life Strategy"
                     />
                   </a>
 
                   <div class="news-category-block">
-
-                    <a  class="category-block-link">
-                      Hamdan bin Mohammed approves Dubai Quality of Life Strategy until 2033 with more than 200 projects and initiatives
+                    <a href="#" class="category-block-link">
+                      <i class="bi-building"></i>
+                      Urban Development
+                    </a>
+                    <a href="#" class="category-block-link">
+                      <i class="bi-stars"></i>
+                      Strategic Initiative
                     </a>
                   </div>
                 </div>
 
                 <div class="news-block-info">
-                  <div class="d-flex mt-2">
-                    <div class="news-block-date">
-                      <p>
-                        <i class="bi-calendar4 custom-icon me-1"></i>
-                        Last updated: May 14, 2024 - 11:43
-                      </p>
+                  <div class="news-meta">
+                    <div class="news-meta-item">
+                      <i class="bi-calendar4"></i>
+                      <span>May 14, 2024</span>
                     </div>
-
-                    <div class="news-block-author mx-5">
-                      <p>
-                        <i class="bi-person custom-icon me-1"></i>
-                        By Dubai Media House
-                      </p>
+                    <div class="news-meta-item">
+                      <i class="bi-person"></i>
+                      <span>By Dubai Media House</span>
                     </div>
-
-                    <div class="news-block-comment">
-                      <p>
-                        <i class="bi-chat-left custom-icon me-1"></i>
-                        190,110 Comments
-                      </p>
-                    </div>
-                    
-                    <div class="news-block-share">
-                      <button onclick="copyShareLink(event, 'quality-life')" class="share-btn" title="Click to copy share link">
-                        <i class="bi-share"></i>
-                        <span>Share</span>
-                      </button>
+                    <div class="news-meta-item">
+                      <i class="bi-chat-left"></i>
+                      <span>190,110 Comments</span>
                     </div>
                   </div>
 
-                  <div class="news-block-title mb-2">
+                  <div class="news-block-title">
                     <h4>
-                      <a class="news-block-title-link"
-                        > 
-                        This Strategy Launched By HH Sheikh Hamdan Aims to Make Dubai the Best City to Live in                        </a
-                      >
+                      <a class="news-block-title-link">
+                        This Strategy Launched By HH Sheikh Hamdan Aims to Make Dubai the Best City to Live in
+                      </a>
                     </h4>
                   </div>
 
                   <div class="news-block-body">
                     <p>
-                      
+                      "Our objective is to establish Dubai as one of the world's best cities in terms of well-being, offer every resident a healthy, active, and enjoyable lifestyle, build a society that takes pride in its identity and cultural diversity, and offer the highest quality of leisure and entertainment."
+                    </p>
+                  </div>
 
-                      "Our objective is to establish Dubai as one of the world's best cities in terms of well-being, offer every resident a healthy, active, and enjoyable lifestyle, build a society that takes pride in its identity and cultural diversity, and offer the highest quality of leisure and entertainment. Dubai's name will become synonymous with fine living worldwide."                        </p>
+                  <div class="news-block-footer">
+                    <button onclick="copyShareLink(event, 'quality-life')" class="share-btn" title="Click to copy share link">
+                      <i class="bi-share"></i>
+                      <span>Share this article</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -2031,65 +2097,57 @@ s0.parentNode.insertBefore(s1,s0);
                     <img
                       src="images/rita.jpg"
                       class="news-image img-fluid"
-                      alt=""
+                      alt="Santorini Island Initiative"
                     />
                   </a>
 
                   <div class="news-category-block">
-
-                    <a  class="category-block-link">
-                       Government inlook into the recent happenings in Santorini Island
+                    <a href="#" class="category-block-link">
+                      <i class="bi-globe"></i>
+                      International Aid
+                    </a>
+                    <a href="#" class="category-block-link">
+                      <i class="bi-house-heart"></i>
+                      Community Support
                     </a>
                   </div>
                 </div>
 
                 <div class="news-block-info">
-                  <div class="d-flex mt-2">
-                    <div class="news-block-date">
-                      <p>
-                        <i class="bi-calendar4 custom-icon me-1"></i>
-                        Last updated: 31/3 - 11:43
-                      </p>
+                  <div class="news-meta">
+                    <div class="news-meta-item">
+                      <i class="bi-calendar4"></i>
+                      <span>March 31, 2024</span>
                     </div>
-
-                    <div class="news-block-author mx-5">
-                      <p>
-                        <i class="bi-person custom-icon me-1"></i>
-                        By Dubai Media House
-                      </p>
+                    <div class="news-meta-item">
+                      <i class="bi-person"></i>
+                      <span>By Dubai Media House</span>
                     </div>
-
-                    <div class="news-block-comment">
-                      <p>
-                        <i class="bi-chat-left custom-icon me-1"></i>
-                        21,110 Comments
-                      </p>
-                    </div>
-                    
-                    <div class="news-block-share">
-                      <button onclick="copyShareLink(event, 'santorini')" class="share-btn" title="Click to copy share link">
-                        <i class="bi-share"></i>
-                        <span>Share</span>
-                      </button>
+                    <div class="news-meta-item">
+                      <i class="bi-chat-left"></i>
+                      <span>21,110 Comments</span>
                     </div>
                   </div>
 
-                  <div class="news-block-title mb-2">
+                  <div class="news-block-title">
                     <h4>
-                      <a class="news-block-title-link"
-                        > 
-                        Workforce Stability and Animal Sheltering 
-                        </a
-                      >
+                      <a class="news-block-title-link">
+                        Workforce Stability and Animal Sheltering
+                      </a>
                     </h4>
                   </div>
 
                   <div class="news-block-body">
                     <p>
-                      
-
                       Coordinating with stakeholders ensures a comprehensive and effective response to the incidents, leveraging diverse resources, expertise, and support networks to address the challenges faced by Santorini Island.
-                        </p>
+                    </p>
+                  </div>
+
+                  <div class="news-block-footer">
+                    <button onclick="copyShareLink(event, 'santorini')" class="share-btn" title="Click to copy share link">
+                      <i class="bi-share"></i>
+                      <span>Share this article</span>
+                    </button>
                   </div>
                 </div>
               </div>
